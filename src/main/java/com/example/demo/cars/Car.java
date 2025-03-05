@@ -16,7 +16,7 @@ public class Car {
             strategy = GenerationType.SEQUENCE,
             generator = "car_sequence"
     )
-    public long vin;
+    private long vin;
     private String brand;
     private String model;
     private String color;

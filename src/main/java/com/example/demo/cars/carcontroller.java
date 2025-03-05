@@ -1,10 +1,7 @@
 package com.example.demo.cars;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,10 +12,15 @@ public class carcontroller {
 
     @Autowired
     public carcontroller(carservice carservice) { this.carservice = carservice; }
+
     @GetMapping
-    public List<Car> hello() {
+    public List<Car> getcar() {
         return carservice.getcar();
 
+    }
+    @PostMapping
+    public void newcar(@RequestBody Car car){
+        carservice.NewCar(car);
     }
 
 
