@@ -22,6 +22,15 @@ public class carcontroller {
     public void newcar(@RequestBody Car car){
         carservice.NewCar(car);
     }
-
-
+    @DeleteMapping(path = "{vin}")
+    public void deletecar(@PathVariable("vin") Long vin){
+        carservice.deletecar(vin);
+    }
+    @PutMapping(path = "{vin}")
+    public void updatecar(
+            @PathVariable("vin") Long vin,
+            @RequestParam(required = false) String color,
+            @RequestParam(required = false)String model){
+        carservice.updatecar(vin, color, model);
+    }
 }
