@@ -33,4 +33,11 @@ public class carcontroller {
             @RequestParam(required = false)String model){
         carservice.updatecar(vin, color, model);
     }
+    @GetMapping(path = "{vin}")
+    public void getcar(@PathVariable("vin") Long vin){
+        carservice.getcar();
+        System.out.println(vin);
+        System.out.println("car found");
+
+    }
 }
